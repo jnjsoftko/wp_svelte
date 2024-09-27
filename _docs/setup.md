@@ -3,7 +3,7 @@
 ## local sites
 
 """
-name: ilmac
+name: wpsvelte
 user: master.vw
 password:
 email: jnjsoft.ko@gmail.com
@@ -11,45 +11,127 @@ email: jnjsoft.ko@gmail.com
 
 ## files
 
-- "/Users/youchan/Local Sites/ilmac/app/public"
+### folder.file 삭제, 복사
 
-### /\_docs
+```sh
+cd "C:\Users\Jungsam\Local Sites\wpsvelte\app\public"
+rmdir /s /q "wp-content\themes\twentytwentythree"
+rmdir /s /q "wp-content\themes\twentytwentytwo"
 
-> `setup.md`
+copy "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\.gitignore" "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\.gitignore"
 
-### /\_env 복사
+xcopy "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_docs\*" "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_docs\" /s /e /h /y
 
-> `vendor/`
+xcopy "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_env\*" "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_env\" /s /e /h /y
 
-> `.env`
+xcopy "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_test\*" "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_test\" /s /e /h /y
+```
 
-> `.env.exmaple`
+### 수정
 
-### `/.gitignore` 복사
+> `C:\Users\Jungsam\Local Sites\wpsvelte\app\public\.gitignore`
 
-### 폴더 삭제
+```
+# Nodejs
+node_modules/
+.svelte-kit/
 
-- "/Users/youchan/Local Sites/ilmac/app/public/wp-content/themes" 하위 폴더 삭제
-  - "/Users/youchan/Local Sites/ilmac/app/public/wp-content/themes/twentytwentyfour" 제외
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
 
-## `/_test`
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
 
-- `phpinfo.php`
+# binary
+*.exe
+
+# folders
+/.svelte-kit
+/package
+_markdowns/
+_links/
+
+build/
+dist/
+_draft/
+_backups/
+pocketbase/
+sqlite/
+```
 
 ## github
 
 ```sh
-cd "/Users/youchan/Local Sites/ilmac/app/public"
-
-github -e pushRepo -u jnjsoftko -n wp_ilmac -d "일맥구조엔지니어링"
+github -e pushRepo -u jnjsoftko -n wp_svelte -d "wordpress sveltekit"
 ```
+
+## sveltekit
+
+- [How to Serve a Svelte Site on WordPress and Why You Shouldn’t](https://bonitotech.com/2024/04/11/how-to-serve-a-svelte-site-on-wordpress-and-why-you-shouldnt/)
+
+### folder, files
+
+- 생성: C:\Users\Jungsam\Local Sites\wpsvelte\app\public\wp-content\themes\svelte-theme
+
+> `C:\Users\Jungsam\Local Sites\wpsvelte\app\public\wp-content\themes\svelte-theme\style.css`
+
+```css
+/**
+ * Theme Name: Svelte Site
+ * Template: twentytwentyfour
+ * ...other header fields
+ */
+```
+
+### sveltekit install
+
+```sh
+cd "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\wp-content\themes\svelte-theme"
+
+
+npm create svelte@latest svelte-project
+
+◇  Which Svelte app template?
+│  Skeleton project
+│
+◇  Add type checking with TypeScript?
+│  Yes, using TypeScript syntax
+│
+◇  Select additional options (use arrow keys/space bar)
+│  Add ESLint for code linting, Add Prettier for code formatting
+
+cd svelte-project
+npm install
+npm run dev
+```
+
+## files
+
+> `C:\Users\Jungsam\Local Sites\wpsvelte\app\public\wp-content\themes\svelte-theme\functions.php`
+
+```php
+
+```
+
+> `C:\Users\Jungsam\Local Sites\wpsvelte\app\public\wp-content\themes\svelte-theme\svelte-index.php`
+
+```php
+
+```
+
+"""
+http://wpsvelte.local/wp-admin/post-new.php?post_type=page
+"""
 
 # copy
 
 ## local sites
 
 """
-name: ilmac
+name: wpsvelte
 user: master.vw
 password:
 email: jnjsoft.ko@gmail.com
@@ -58,17 +140,17 @@ email: jnjsoft.ko@gmail.com
 ## copyRepo
 
 ```sh
-cd "C:\Users\Jungsam\Local Sites\ilmac\app"
+cd "C:\Users\Jungsam\Local Sites\wpsvelte\app"
 
-# delete C:\Users\Jungsam\Local Sites\ilmac\app\public\wp-content\themes\twentytwentythree
+# delete C:\Users\Jungsam\Local Sites\wpsvelte\app\public\wp-content\themes\twentytwentythree
 rmdir /s /q "public\wp-content\themes\twentytwentythree"
 rmdir /s /q "public\wp-content\themes\twentytwentytwo"
 
 # github copy remote repository
-github -e copyRepo -u jnjsoftko -n wp_ilmac
+github -e copyRepo -u jnjsoftko -n wp_wpsvelte
 
 # move github local repository
-xcopy "C:\Users\Jungsam\Local Sites\ilmac\app\wp_ilmac\*" "C:\Users\Jungsam\Local Sites\ilmac\app\public" /s /e /h /y
+xcopy "C:\Users\Jungsam\Local Sites\wpsvelte\app\wp_wpsvelte\*" "C:\Users\Jungsam\Local Sites\wpsvelte\app\public" /s /e /h /y
 ```
 
 ## composer(dotenv)
@@ -99,7 +181,7 @@ extension_dir="C:/Users/Jungsam/AppData/Roaming/Local/lightning-services/php-8.1
 
 ### dotenv
 
-> `C:\Users\Jungsam\Local Sites\ilmac\app\public\_env\.env`
+> `C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_env\.env`
 
 ```
 ADMIN_USER_ID=
@@ -113,14 +195,14 @@ MYSQL_DB=
 ```
 
 ```sh
-cd "C:\Users\Jungsam\Local Sites\ilmac\app\public\_env"
+cd "C:\Users\Jungsam\Local Sites\wpsvelte\app\public\_env"
 composer require vlucas/phpdotenv
 ```
 
 ## check in browser
 
 """
-http://ilmac.local/_test/env.php
+http://wpsvelte.local/_test/env.php
 
-http://ilmac.local/_test/mysql.php
+http://wpsvelte.local/_test/mysql.php
 """
