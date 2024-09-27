@@ -1,0 +1,46 @@
+wp-admin/
+wp-includes/
+
+plugins/
+uploads/
+themes/twentytwentyfour/
+
+wp-config.php
+wp-settings.php
+
+# secret
+.env
+vendor/
+
+# mac
+# find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+*.DS_Store
+
+# Nodejs
+node_modules/
+.svelte-kit/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# binary
+*.exe
+
+# folders
+/.svelte-kit
+/package
+_markdowns/
+_links/
+
+build/
+dist/
+_draft/
+_backups/
+pocketbase/
+sqlite/
